@@ -1,0 +1,117 @@
+// Suma y resta de matrices 
+//Id:222946
+//Muñoz Serna J. Refugio 
+
+#include <stdio.h>
+#include <stdlib.h> 
+#define max 20 
+
+int main(){
+	
+int tam;
+int  A[max][max], B[max][max], i, j;
+int suma[max][max], der[max][max], izq[max][max];
+
+printf("Tamaño de las matrices (son cuadradas):\n");
+scanf("%d",&tam);
+
+
+
+//---------------------------------INGREAR VALORES DE LAS MATRICES 
+printf("Matriz A\n");
+for (i=0; i<tam; i++){
+	for (j=0; j<tam; j++){
+		printf("\nIngrese el valor en posicion [%d][%d]----> ", i+1, j+1);
+		scanf("%d", &A[i][j]);
+	}
+}	
+
+printf("Matriz B\n");
+for (i=0; i<tam; i++){
+	for (j=0; j<tam; j++){
+		printf("\nIngrese el valor en posicion [%d][%d]----> ", i+1, j+1);
+		scanf("%d", &B[i][j]);
+	}
+}
+system ("cls");
+//---------------------------------IMPRIMIR MATRICES--------------------
+
+
+printf("Matriz A\n");
+for (i=0; i<tam; i++){
+	printf("\n");
+	for (j=0; j<tam; j++){
+		printf("%d  ", A[i][j] );
+	}
+}
+
+printf("\nMatriz B");
+for (i=0; i<tam; i++){
+	printf("\n");
+	for (j=0; j<tam; j++){
+		printf("%d  ", B[i][j] );
+	}
+}
+
+// Suma de las matrices 
+printf("\nMatriz  resultado de la Suma\n");
+for (i=0; i<tam; i++){
+	for (j=0; j<tam; j++){
+	suma[i][j] = A[i][j] + B[i][j];
+	}
+}
+
+for (i=0; i<tam; i++){
+		printf("\n");
+	for (j=0; j<tam; j++){
+	printf("%d ", suma[i][j]);
+	}
+
+}
+
+//Suma de las diagonales
+
+printf("\nIzquierda\n");
+for (i=0; i<tam; i++){
+	for (j=0; j<tam; j++){
+		
+		if (j == i){
+			izq[i][j] = A[i][j] - B[i][j];
+		}
+		else{
+			izq[i][j] = A[i][j] + B[i][j];
+		}
+	}
+}
+
+for (i=0; i<tam; i++){
+	printf("\n");
+	for (j=0; j<tam; j++){
+		printf("%d ", izq[i][j]);
+	}
+}	
+//----------------------------------------------
+
+
+
+printf("\nDerecha\n");
+
+for (i=tam; i>=0; i--){
+	for (j=tam; j>=0; j--){
+		
+		if (j == i   )
+			der[i][j] = A[i][j] - B[i][j];
+		else
+			der[i][j] = A[i][j] + B[i][j];
+	}
+}
+
+for (i=0; i<tam; i++){
+	printf("\n");
+	for (j=0; j<tam; j++){
+		printf("%d ", der[i][j]);
+	}
+}
+	
+	return 0;
+}
